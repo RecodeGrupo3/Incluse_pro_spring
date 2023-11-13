@@ -6,6 +6,65 @@ let password2 = document.getElementById('password2')
 form.addEventListener('submit',(event)=>{
 	event.preventDefault()
 	
-	console.log(`Email: ${email.value} \nPassword: ${password.value} \nPassword2: ${password2.value}`)
+	//verifica se nenhum dos campos está vazio
+	if(!email.value || !password.value || !password.value){
+		showReponse('Campo vazio','alert')
+		return;
+	}
+	
+	//verifica se a senha e confirmação da senha são iguais
+	if(password.value != password2.value){
+		showReponse('Confirmação de senha errado','alert')
+		return; 
+	}
+	
+		
+	fetch('/register',{
+		method:'POST',
+		headers:{
+           "Content-Type": "application/json"
+		},
+		body:JSON.stringify({
+			email:'cristiannascimentomauricio@gmail.com',
+			password:'Password'
+			
+		})})
+		.then( res =>res.text())
+		.then(data =>{
+			console.log('Okay')
+		})
+	
+	deletResponse()	
 	
 })
+
+
+function showReponse(response,responseValue){
+	
+	let divResponse = document.createElement('div')
+	let textResponse = document.createElement('p')
+	let containerResponse = document.querySelector('.container-response')
+
+	
+	deletResponse()
+
+	divResponse.className = `response ${responseValue}`
+	
+	textResponse.innerText = response
+	
+	divResponse.appendChild(textResponse)
+	
+	containerResponse.appendChild(divResponse)
+	
+}
+
+function deletResponse(){
+	
+	let lastResponse = document.querySelector('.container-response .response')
+	
+	//Deletar resposta anterior	
+	if(lastResponse){
+		lastResponse.remove()
+	}	
+}
+
