@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="CSS/feed.css">
+		<title>feed</title>
+	</head>
+	<body>
+		<div th:replace="~{components/header}"></div>
+
+		<main>
+			<div class="container">
+				
+				<div class="container-information">
+					
+					<div class="container-information-perfil-photo">
+						<div class="box-photo">
+							<img src="./Medias/PNG/perfil_photo.png">
+						</div>
+					</div>
+					
+					<div class="container-information-status">
+						<div class="box-username">
+							<a id="box-username" href="/perfil">
+								<p>Cristian Nascimento Maurício</p>
+							</a>
+						</div>
+						<div class="box-status">
+							<p>Programador FULL STACK | HTML | CSS | JAVASCRIPT | REACT JS | JAVA WEB | SPRING BOOT | Desenvolvedor aplicativo móbile | JAVA | KOTLIN | Técnico</p>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="container-feed">
+					<div class="create-post">
+						<div class="button-create-post">
+							<img src="./Medias/PNG/post.png">
+						</div>
+						
+						<div class="div-text">
+							<p>Fazer um poste ajuda na visibilidade do seu perfil...</p>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div class="container-hashtags">
+					
+					<div class="container-hashtags-trending">
+						<div class="trending">
+							<p>Tendências do momento</p>
+						</div>
+					</div>
+					
+					<div class="div-tags">
+						<a class="tag" href="#">
+							<p>#trabalho</p>
+						</a>
+						
+						<a class="tag" href="#">
+							<p>#concurso público</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</main>
+		
+		<div th:replace="~{components/footer}"></div>
+	</body>
+</html>

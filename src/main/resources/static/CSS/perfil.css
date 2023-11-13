@@ -1,0 +1,242 @@
+main {
+	width: 100%;
+	height: fit-content;
+	min-height: 1000px;
+}
+
+.container  {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 1200px;
+	height: fit-content;
+	margin: auto;
+	padding: 1%;
+	min-height: 500px;
+	background-color: grey;
+	
+}
+
+.perfil-information {
+	width: 100%;
+	height: 300px;
+	position: relative;
+	background-color: aqua;
+}
+
+.wallpaper {
+	width: 100%;
+	height: 80%;
+	background-image: url('../Medias/PNG/backgroud-perfil.png');
+	background-position: center;
+	background-size: contain;
+}
+
+.perfil-photo {
+	position: absolute;
+	bottom: 10px;
+	left: 5%;
+	width: 120px;
+	height: 120px;
+	
+}
+
+.perfil-photo img {
+	width: 100%;
+	height: 100%;
+}
+
+.perfil-status {
+	width: 100%;
+	height: 200px;
+	background-color: red;
+	padding-top: 10px;
+}
+
+.username {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background-color: aquamarine;
+	padding-left: 2%;
+}
+
+.username p {
+	font-size: 26px;
+}
+
+.status {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	background-color: blueviolet;
+	padding: 0 2%;
+	margin-top: 5px;
+}
+
+.status p {
+	font-size: 18px;
+	color: darkgrey;
+}
+
+.information {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+	width: 100%;
+	height: 30px;
+	padding: 0 2%;
+	background-color: chocolate;
+}
+
+.perfil-experience {
+	width: 100%;
+	height: 500px;
+	background-color: chartreuse;
+}
+
+.jobs {
+	width: 100%;
+	min-height: 200px;
+	height: fit-content;
+	background-color: darkgoldenrod;
+	padding: 1% 2%;
+	
+}
+
+.jobs-title {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background-color: orangered;
+	
+}
+
+.jobs-title {
+	font-size: 32px;
+}
+
+.my-jobs {
+	width: 100%;
+	min-height: 150px;
+	height: fit-content;
+	background-color: darkorchid;
+	padding: 1% 0 1% 3%;
+}
+
+.my-job {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	margin: 5px 0;
+	background-color: cyan;
+	
+}
+
+.company {
+	display: flex;
+	align-items: center;
+	width: 25%;
+	height: 100%;
+	background-color: antiquewhite;
+	padding-left: 1%;
+	overflow-x: hidden;
+	
+}
+
+.company p {
+	font-size: 24px;
+}
+
+.work {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35%;
+	height: 100%;
+	background-color: cadetblue;
+	padding-left: 1%;
+	overflow-x: hidden;
+	
+}
+
+.work p {
+	font-size: 24px;
+}
+
+.date {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	width: 40%;
+	height: 100%;
+	background-color: floralwhite;
+	padding-right: 1%;
+	overflow-x: hidden;
+}
+
+.date p {
+	font-size: 24px;
+}
+
+.skills {
+	width: 100%;
+	min-height: 200px;
+	height: fit-content;
+	background-color: darkgoldenrod;
+	padding: 1% 2%;
+	
+}
+
+.skill-title {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	width: 100%;
+	height: 50px;
+	background-color: orangered;
+	
+}
+
+.skill-title p {
+	font-size: 32px;
+}
+
+.my-skills {
+	width: 100%;
+	min-height: 150px;
+	height: fit-content;
+	background-color: darkorchid;
+	padding: 1% 0 1% 3%;
+	
+}
+
+.my-skill {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	margin: 5px 0;
+	background-color: cyan;
+	
+}
+
+.course {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35%;
+	height: 100%;
+	background-color: cadetblue;
+	padding-left: 1%;
+	overflow-x: hidden;
+	
+}
+
+.course p {
+	font-size: 24px;
+}
+
+
