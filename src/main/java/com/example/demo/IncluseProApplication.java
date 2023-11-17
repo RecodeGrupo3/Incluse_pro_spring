@@ -10,4 +10,6 @@ public class IncluseProApplication {
 		SpringApplication.run(IncluseProApplication.class, args);
 	}
 
+	
+	
 }

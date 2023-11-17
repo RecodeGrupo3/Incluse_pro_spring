@@ -1,6 +1,6 @@
-package com.example.demo.Util;
+package com.example.demo.util;
 
-public class UserRegister {
+public class UserLogin {
 
 	private String email;
 	private String password;
@@ -17,7 +17,5 @@ public class UserRegister {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 	
 }

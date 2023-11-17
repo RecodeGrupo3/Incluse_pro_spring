@@ -22,4 +22,14 @@ public class PageController {
 		return new ModelAndView("PAGES/register.html");
 	}
 	
+	@GetMapping("/register/information")
+	public ModelAndView getinformation() {
+		return new ModelAndView("PAGES/register-information.html");
+	}
+	
+	@GetMapping("/login")
+	public ModelAndView login() {
+		return new ModelAndView("PAGES/login.html");
+	}
+	
 }

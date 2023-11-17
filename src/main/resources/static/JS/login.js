@@ -1,7 +1,6 @@
 let form =  document.getElementById('form')
 let email = document.getElementById('email')
 let password = document.getElementById('password')
-let password2 = document.getElementById('password2')
 
 form.addEventListener('submit',(event)=>{
 	event.preventDefault()
@@ -12,42 +11,24 @@ form.addEventListener('submit',(event)=>{
 		return;
 	}
 	
-	//verifica se a senha e confirmação da senha são iguais
-	if(password.value != password2.value){
-		showReponse('Confirmação de senha errado','alert')
-		return; 
-	}
-	
-		
-	fetch('/register',{
+	fetch('/login',{
 		method:'POST',
 		headers:{
            "Content-Type": "application/json"
 		},
 		body:JSON.stringify({
-			email: email.value,
-			password:password.value
+			email:'teste',
+			password:'Password'
 			
 		})})
 		.then( res =>res.text())
 		.then(data =>{
-			showReponse(data,"okay")
-			localStorage.setItem('email',email)
-			localStorage.setItem('password',password)
-
-			setTimeout(()=>{
-				location.replace('/register/information')
-			},1000)
-			
-		})
-		.catch(()=>{
-			showReponse("Erro no cadastro","error")
+			console.log('Okay')
 		})
 	
 	deletResponse()	
 	
 })
-
 
 function showReponse(response,responseValue){
 	
@@ -77,4 +58,3 @@ function deletResponse(){
 		lastResponse.remove()
 	}	
 }
-
