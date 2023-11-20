@@ -40,7 +40,6 @@ form.addEventListener('submit',(event)=>{
 		})
 		.then(data =>{
 						
-			showReponse("Email cadastrado com sucesso","okay")
 			localStorage.setItem('email',data.email)
 			localStorage.setItem('password',data.password)
 			
@@ -52,18 +51,10 @@ form.addEventListener('submit',(event)=>{
 			
 		})
 		.catch(erro =>{
-			if(erro.message == "Email já cadastrado"){
-				showReponse(erro.message,"alert")	
-			} else if(erro.message == "Erro no servidor"){
-				showReponse(erro.message,"error")	
-
-			} else {
-				showReponse("Sem resposta do servidor","error")	
-			}
+			console.log('Erro')
 
 		})
 	
-	deletResponse()	
 	
 })
 

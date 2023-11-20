@@ -85,11 +85,6 @@ function addJob(){
 //Enviar informações para o back-end
 document.getElementById('send').addEventListener('click',()=>{
 	
-	if(localStorage.getItem('email').value || localStorage.getItem('password').value){
-		
-	}
-	showMessage()
-	
 	
 	let user = {
 		email: localStorage.getItem('email'),
@@ -126,7 +121,6 @@ document.getElementById('send').addEventListener('click',()=>{
 		
 	})
 	
-	console.log(user)
 	
 	fetch("/register/information",{
 		method:'POST',
@@ -139,6 +133,9 @@ document.getElementById('send').addEventListener('click',()=>{
 	.then(data =>{
 		if(data == "success"){
 			showMessage("Informações cadastrada com sucesso")
+			setTimeout(()=>{
+				location.replace('/perfil')	
+			},1000)
 		} else if(date == "failure"){
 			showMessage("Erro ao cadastrar informações")
 
@@ -151,6 +148,8 @@ document.getElementById('send').addEventListener('click',()=>{
 		console.log('Erro')
 	})
 	
+
+		
 })
 
 

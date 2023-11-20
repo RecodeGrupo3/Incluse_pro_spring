@@ -2,6 +2,8 @@ package com.example.demo.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Post {
 	private String title;
 	
 	@Column
+	@JsonBackReference
 	private String text;
 
 	public Post( User user,  String title, String text) {

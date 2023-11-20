@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.emitter.Emitable;
 
 import com.example.demo.models.User;
 import com.example.demo.repository.UserRepository;
@@ -34,7 +35,12 @@ public class ServiceRegisterAndLogin {
 		
 		User email = userRepository.getByEmail(user.getEmail());
 		
+		System.out.print("\n - " + email.getEmail());
+		System.out.print("\n - " + user.getEmail());
+
+		
 		if(email != null) {
+			user.setId(email.getId());
 			userRepository.save(user);
 			return "success";
 		}
@@ -42,5 +48,11 @@ public class ServiceRegisterAndLogin {
 		return "failure";
 	}
 	
+	public User getUser(String email) {
+				
+		User user = userRepository.getByEmail(email);
+
+		return user;
+	}
 	
 }

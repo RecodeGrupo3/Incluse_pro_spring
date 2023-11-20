@@ -4,11 +4,14 @@ import java.net.http.HttpHeaders;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.example.demo.models.Post;
@@ -25,7 +28,6 @@ public class RestController {
 	@Autowired
 	ServiceRegisterAndLogin serviceRegisterAndLogin;
 	
-
 	@PostMapping("/register")
 	public ResponseEntity<UserRegister> register(@RequestBody UserRegister user) {
 		System.out.print("\nUsername: " + user.getEmail() + "\nPassword: " + user.getPassword());
@@ -70,6 +72,13 @@ public class RestController {
 		});
 		
 		return new ResponseEntity<>( serviceRegisterAndLogin.addInformation(user), null ,  HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@GetMapping("/user")
+	public User getUser(@RequestParam String email) {
+
+		return serviceRegisterAndLogin.getUser(email.trim());	
+
 	}
 	
 	@PostMapping("/login")
