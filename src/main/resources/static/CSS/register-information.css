@@ -147,3 +147,35 @@
 	height: 75%;
 }
 
+#send {
+	width: 250px;
+	height: 80px;
+	margin: 15px auto 100px auto;
+	border-radius: 10px;
+	font-size: 26px;
+}
+
+#response {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 100px;
+	margin: 10px auto;
+	
+}
+
+.message {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+	height: 50%;
+	background-color: grey;
+	
+}
+
+.message p {
+	
+}
+

@@ -10,7 +10,7 @@ buttonAddSkill.addEventListener('click',()=>{
 })
 
 buttonAddJob.addEventListener('click',()=>{
-	document.querySelector('.my-jobs').appendChild( addSkill() )
+	document.querySelector('.my-jobs').appendChild( addJob() )
 	
 	
 })
@@ -52,10 +52,10 @@ function addSkill(){
 function addJob(){
 	
 	let job = document.createElement('div')
-	job.className = "skill"
+	job.className = "job"
 	
 	let course = document.createElement('input')
-	course.className = "Emprego"
+	course.className = "work"
 	course.placeholder = "Curso"
 	
 	job.appendChild(course)
@@ -82,5 +82,94 @@ function addJob(){
 
 }
 
+//Enviar informações para o back-end
+document.getElementById('send').addEventListener('click',()=>{
+	
+	if(localStorage.getItem('email').value || localStorage.getItem('password').value){
+		
+	}
+	showMessage()
+	
+	
+	let user = {
+		email: localStorage.getItem('email'),
+		password: localStorage.getItem('password'),
+		username: document.getElementById('name').value.trim(),
+		birth: document.getElementById('birth').value.trim(),
+		status: document.getElementById('status').value.trim(),
+		skills:[],
+		jobs:[],
+	}
+	
+	document.querySelectorAll('.skill').forEach(element =>{
+		skill = {
+			course: element.querySelector('.course').value,
+			type: element.querySelector('.funcation').value,
+			start: element.querySelector('.date-start').value,
+			end: element.querySelector('.date-end').value
+		}
+		
+		user.skills.push(skill)
+		
+	})
+	
+	document.querySelectorAll('.job').forEach(element =>{
+		job = {
+			work: element.querySelector('.work').value,
+			type: element.querySelector('.funcation').value,
+			start: element.querySelector('.date-start').value,
+			end: element.querySelector('.date-end').value
+		}
+		
+		
+		user.jobs.push(job)
+		
+	})
+	
+	console.log(user)
+	
+	fetch("/register/information",{
+		method:'POST',
+		headers: {
+    		'Content-Type': 'application/json' 
+  		},
+		body: JSON.stringify(user)
+	})
+	.then(res => res.text())
+	.then(data =>{
+		if(data == "success"){
+			showMessage("Informações cadastrada com sucesso")
+		} else if(date == "failure"){
+			showMessage("Erro ao cadastrar informações")
 
+		} else {
+			
+		}
+		
+	})
+	.catch(data =>{
+		console.log('Erro')
+	})
+	
+})
+
+
+function showMessage(myText){
+	let div = document.getElementById('response')
+	let LastMassage = div.querySelector('.message')
+	
+	LastMassage.remove()
+	
+	let message = document.createElement('div')
+	message.className = "message"
+	
+	let text = document.createElement('p')
+	text.innerText = myText
+	
+	message.appendChild(text)
+	
+	document.getElementById('response').appendChild(message)
+	
+	
+}
 

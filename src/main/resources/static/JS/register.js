@@ -1,4 +1,4 @@
-let form =  document.getElementById('form')
+let form = document.getElementById('form')
 let email = document.getElementById('email')
 let password = document.getElementById('password')
 let password2 = document.getElementById('password2')
@@ -29,19 +29,38 @@ form.addEventListener('submit',(event)=>{
 			password:password.value
 			
 		})})
-		.then( res =>res.text())
+		.then( res => {
+			if(res.status == 201){
+				return res.json()
+			} else if(res.status == 409){
+				throw new Error("Email já cadastrado")
+			} else {
+				throw new Error("Erro no servidor")
+			}
+		})
 		.then(data =>{
-			showReponse(data,"okay")
-			localStorage.setItem('email',email)
-			localStorage.setItem('password',password)
-
+						
+			showReponse("Email cadastrado com sucesso","okay")
+			localStorage.setItem('email',data.email)
+			localStorage.setItem('password',data.password)
+			
+			console.log(data.email , + " "+ data. password )
+			
 			setTimeout(()=>{
 				location.replace('/register/information')
 			},1000)
 			
 		})
-		.catch(()=>{
-			showReponse("Erro no cadastro","error")
+		.catch(erro =>{
+			if(erro.message == "Email já cadastrado"){
+				showReponse(erro.message,"alert")	
+			} else if(erro.message == "Erro no servidor"){
+				showReponse(erro.message,"error")	
+
+			} else {
+				showReponse("Sem resposta do servidor","error")	
+			}
+
 		})
 	
 	deletResponse()	
